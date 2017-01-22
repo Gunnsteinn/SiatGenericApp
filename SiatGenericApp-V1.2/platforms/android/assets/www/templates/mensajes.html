@@ -1,0 +1,35 @@
+<ion-view title="Mensajes" cache-view="false">
+  <ion-content ng-show="loading" class="has-header">
+    <ion-spinner icon="lines" class="spinner-calm"></ion-spinner>
+  </ion-content>
+  <ion-content ng-show="!loading" padding="false" scroll="true" class="has-header">
+    <ion-list>
+        <div ng-repeat="item in chatResult" ng-include src="isMedicClass(item.esMedico)"></div>   
+    </ion-list>
+    <form class="list bottom-form">
+      <label class="item item-input">
+        <input type="text" placeholder="Say Something" ng-model="data.sendMessage">
+      </label>
+      <button class="button button-positive button-block" ng-click="sendMsj(data.sendMessage)">Enviar</button>
+    </form>
+  </ion-content>
+
+
+    <script type="text/ng-template" id="rightSide.html">
+        <ion-item class="item item-thumbnail-right" style="min-height: 65px;padding-right: 60px !important;">
+            <img src={{item.userFoto}} style="border-radius:50%;width: 40px;height: 40px !important;object-fit: cover;">
+            <p style="text-align: right; padding-top:10px;white-space: normal;">{{item.msj}}</p>
+        </ion-item>
+    </script>
+
+    <script type="text/ng-template" id="leftSide.html">
+        <ion-item class="item item-thumbnail-left" style="min-height: 65px;padding-left: 60px !important;">
+            <img src={{item.userFoto}} style="border-radius:50%;width: 40px;height: 40px !important;object-fit: cover;">
+            <p style="text-align: left; padding-top:10px;white-space: normal;">{{item.msj}}</p>
+        </ion-item>
+    </script>
+
+
+</ion-view>
+
+

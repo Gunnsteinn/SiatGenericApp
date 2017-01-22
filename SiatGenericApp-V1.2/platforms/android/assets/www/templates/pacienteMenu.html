@@ -1,0 +1,53 @@
+<ion-view title="Siat" hide-back-button="true" cache-view="false" style="background-color:#FFFFFF;">
+  <ion-nav-buttons side="left" scroll="false" class="has-header">
+    <button class="button button-icon icon ion-log-out" ng-click="logOut()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right" scroll="false" class="has-header">
+    <button class="button button-icon icon ion-android-chat" ng-click="chatInfo()" ui-sref="mensajes"></button>
+  </ion-nav-buttons>
+  <ion-content ng-show="loading" class="has-header">
+    <ion-spinner icon="lines" class="spinner-calm"></ion-spinner>
+  </ion-content>
+    <ion-content ng-show="!loading" padding="false" scroll="false" class="has-header">
+        <div style="width: 100%;position: fixed;bottom: 35%;">
+            <div style="width: 250px;height: 250px;margin-right:auto;margin-left:auto;">
+                <div round-progress
+                     max="dosisPeriod"
+                     current="percentTodosis"
+                     color="{{ progressBarColor }}"
+                     bgcolor="#eaeaea"
+                     radius="60"
+                     stroke="10"
+                     semi="false"
+                     rounded="true"
+                     clockwise="true"
+                     responsive="true"
+                     iterations="100"
+                     animation="easeInOutQuart"></div>
+                <button class="{{takeDosisButton}}" style="margin-top: -90%;height: 80%;width: 80%;margin-left: auto;margin-right: auto;border-radius: 50%;" ng-click="tomarDosis()">{{takeDosis}}</button>
+                <button class="{{cancelDosisButton}}" style="margin-top: -15%;margin-left: 90%;border-radius: 50%;" ng-click="confirmCancel();"></button>
+            </div>
+            <div style="text-align:center;padding-top: 10px;" class="show-list-numbers-and-dots">
+                Próxima Dosis: {{patientInfo.patturn}}
+            </div>
+        </div>
+        
+        <div style="position: absolute;bottom: 0px;width: 100%;">
+            <ion-list>
+                <ion-item class="item-divider" id="men-list-item-divider2"> Especialista</ion-item>
+                <ion-item class="item-avatar item-icon-right" id="men-list-item5">
+                    <img src={{patientInfo.espPhoto}}>
+                    <h2>Dr  {{patientInfo.espName}} {{patientInfo.espLastName}}</h2>
+                    <p>Próx. Turno: {{patientInfo.espturn}}</p>
+                    <i class="icon ion-android-calendar"></i>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="left" class="bar-positive">
+        <h5 class="title">Llamar a Especialista</h5>
+        <a href={{patientInfo.espTel}} id="men-button25" style="text-align:left;" class="button icon-right ion-android-call"></a>
+    </ion-footer-bar>
+
+
+</ion-view>

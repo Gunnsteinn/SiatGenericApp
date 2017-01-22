@@ -1,0 +1,20 @@
+<ion-view cache-view="false" title="Login Especialista">
+  <ion-content padding="true" class="has-header">
+    <form id="loginEspecialista-form2" class="list">
+      <div class="spacer" style="width: 300px; height: 142px;"></div>
+      <ion-list id="loginEspecialista-list2">
+        <label class="item item-input" id="loginEspecialista-input3">
+          <span class="input-label">Usuario</span>
+          <input type="text" placeholder="" ng-model="data.usernameMedic">
+        </label>
+        <label class="item item-input" id="loginEspecialista-input4">
+          <span class="input-label">Contraseña</span>
+          <input type="password" placeholder="" ng-model="data.passwordMedic">
+        </label>
+          <span ng-show="errorLoginMedic">Contraseña</span>
+      </ion-list>
+      <div class="spacer" style="height: 40px;"></div>
+      <a ng-click="loginMedic()" id="loginEspecialista-button14" class="button button-block button-outline button-positive">Ingresar</a>
+    </form>
+  </ion-content> 
+</ion-view>

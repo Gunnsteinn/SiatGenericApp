@@ -1,0 +1,25 @@
+<ion-view title="Turnos" cache-view="false">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-android-add"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header">
+    <ion-list id="turnos-list11">
+      <ion-item class="item-divider" id="turnos-list-item-divider5"> Ésta Semana</ion-item>
+        <ion-item ng-repeat="item in turnosInfoSem" class="item-avatar item-icon-right positive" id="pacientes-list-item8">
+            <img src={{item.userFoto}}>
+            <h2positive>
+                {{item.name}} {{item.lastName}}
+                <p>{{item.turno}}</p>
+            </h2positive>
+        </ion-item>
+      <ion-item class="item-divider" id="turnos-list-item-divider6"> Próximos</ion-item>
+        <ion-item ng-repeat="item in turnosInfoProx" class="item-avatar item-icon-right positive" id="pacientes-list-item8">
+            <img src={{item.userFoto}}>
+            <h2positive>
+                {{item.name}} {{item.lastName}}
+                <p>{{item.turno}}</p>
+            </h2positive>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

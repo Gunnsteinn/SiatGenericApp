@@ -1,0 +1,23 @@
+<ion-view title="Pacientes" hide-back-button="true" cache-view="false">
+<ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon icon ion-log-out" ui-sref="inicio" ng-click="logOut()"></button>
+  </ion-nav-buttons>
+<ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-android-calendar" ui-sref="turnos" ng-click="turnos()"></button>
+  </ion-nav-buttons>
+  <ion-content ng-show="loading" class="has-header">
+    <ion-spinner icon="lines" class="spinner-calm"></ion-spinner>
+  </ion-content>
+  <ion-content padding="false" class="has-header" ng-show="!loading">
+    <ion-list id="pacientes-list9">
+      <ion-item collection-repeat="item in result" class="item-avatar item-icon-right positive" id="pacientes-list-item8">
+        <img src={{item.imagen_perfil}}>
+        <h2positive>{{item.nombre}} {{item.apellido}}
+          <p>Enfermedad
+            <br>{{item.comercial}}</p>
+            <a class="button button-icon icon ion-android-chat" ui-sref="mensajes" ng-click="itemClick($index, item.idUsuario)"></a>
+        </h2positive>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
